@@ -13,10 +13,9 @@ def extract_question_text(text):
 
 
 def extract_choose_text(text):
-    # 使用正则表达式匹配所需文本
-    match = re.search(r'\d+、.*?(A、.+?)\\n\\n【答案】', text, re.DOTALL)
+    # 调整正则表达式以适应不同的换行格式
+    match = re.search(r'\d+、.*?(A、.+?)【答案】', text, re.DOTALL)
     if match:
-        # 返回匹配到的文本
         return match.group(1).strip()
     return ""
 

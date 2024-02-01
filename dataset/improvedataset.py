@@ -13,8 +13,12 @@ def improve_explanation(explanation):
         # 删除每个字符串元素中第一个满足 r'.{2}：' 格式的部分内容
         text = re.sub(r'^.{2}：', '', text)
         text = re.sub(r'本题主要考察.+?。', '', text)
+        text=re.sub(r'相关内容拓展：','',text)
+        text = re.sub(r'相关法规参考：', '根据', text)
         new_text=re.sub(r'因此选择.+?。', '', text)
-        improved_results.append(new_text)
+        # 新增代码，删除含有"选项"二字的元素
+        if "选项" not in text:
+            improved_results.append(new_text)
     return improved_results
 
 # 读取 JSON 数据
