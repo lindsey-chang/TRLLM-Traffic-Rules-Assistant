@@ -81,3 +81,6 @@ python run.py --custom-dataset-path /root/data/eval_data/mcq_data.jsonl --hf-pat
 这说明，微调对基座模型在驾考科目一科目四考试答题的**准确率**表现上有着较明显的**提升**。
 
 > `mcq_data.jsonl` 与微调数据集`llm_conversation_dataset_merge_random_v1.json`是分开构建的，未有数据泄漏问题，构建过程详见[微调数据集构建流程](../dataset/README.md)。
+
+
+## 量化部署评测
