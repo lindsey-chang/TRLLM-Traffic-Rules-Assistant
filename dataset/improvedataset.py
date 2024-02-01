@@ -7,6 +7,8 @@ def is_picture_question(json_object):
 
 def improve_explanation(explanation):
     improved_results = []
+    if explanation=="":
+        return []
     for text in explanation:
         # 删除每个字符串元素中第一个满足 r'.{2}：' 格式的部分内容
         text = re.sub(r'^.{2}：', '', text)
@@ -26,9 +28,9 @@ for item in json_data:
     question=item.get("question", "")
     choose=item.get("choose", "")
     answer=item.get("answer", "")
-    explanation=item.get("explanation", "")
+    explanation=item.get("explanation", [])
 
-    improve_explanation(explanation)
+    item["explanation"] = improve_explanation(explanation)
 
     if is_picture_question(item):
         picture_json_list.append(item)
@@ -40,7 +42,7 @@ for item in json_data:
 print(f"picture_json_list length is {len(picture_json_list)}")
 print(f"text_json_list length is {len(text_json_list)}")
 
-# # 保存到文件（图片数据集）
-# save_to_json_file(picture_json_list, 'structqa_picture.json')
-# # 保存到文件（文本数据集）
-# save_to_json_file(text_json_list, 'structqa_text.json')
+# 保存到文件（图片数据集）
+save_to_json_file(picture_json_list, 'structqa_picture.json')
+# 保存到文件（文本数据集）
+save_to_json_file(text_json_list, 'structqa_text.json')
