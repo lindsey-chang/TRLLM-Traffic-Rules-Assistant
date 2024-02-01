@@ -44,15 +44,7 @@ def extract_choiceslist_from_answer(choose, answer):
 
 
 def create_json_object(system, input, output):
-    """
-    创建包含问题、选项、答案和解释的 JSON 对象。
 
-    :param question: 问题文本
-    :param choose: 选项文本
-    :param answer: 答案文本
-    :param explanation: 解释文本
-    :return: 构造的 JSON 对象
-    """
     return {
         "system": system,
         "input": input,

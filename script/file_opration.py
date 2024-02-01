@@ -1,5 +1,33 @@
 import json
 import random
+
+def count_jsonl_objects_in_file(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return sum(1 for line in file)
+    except FileNotFoundError:
+        print("Error: 文件未找到。")
+        return 0
+
+
+
+def count_json_objects_in_file(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            if isinstance(data, list):
+                return len(data)  # 数组中的元素数量
+            else:
+                return 1  # 文件包含单个JSON对象
+    except json.JSONDecodeError:
+        print("Error: 文件不是有效的JSON格式。")
+        return 0
+    except FileNotFoundError:
+        print("Error: 文件未找到。")
+        return 0
+
+
+
 def shuffle_json_file(input_file_name, output_file_name):
     # 读取 JSON 数据
     with open(input_file_name, 'r', encoding='utf-8') as file:
@@ -37,3 +65,12 @@ def merge_and_save_json_files(file1_path, file2_path, output_file_path):
         json.dump(merged_data, file, ensure_ascii=False, indent=4)
 
     return merged_data
+
+# 示例使用
+# jsonl_file_name = 'your_file.jsonl'
+# print(f"文件'{jsonl_file_name}'中包含的JSON对象数量：{count_jsonl_objects_in_file(jsonl_file_name)}")
+
+# 示例使用
+file_name = '../dataset/llm_conversation_dataset_merge_random_v1.json'
+# llm_conversation_dataset_merge_random_v1.json'中包含的JSON对象数量：40468
+print(f"文件'{file_name}'中包含的JSON对象数量：{count_json_objects_in_file(file_name)}")

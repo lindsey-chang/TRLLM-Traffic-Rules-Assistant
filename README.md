@@ -9,7 +9,7 @@
 <h3 align="center">TRLLM</h3>
 </div>
 <p>
-<b>TRLLM</b>可以作为车载应用平台上的交规小助手，也可以作为有意向考取驾驶证同学进行题目问答解答的驾考小助手
+<b>TRLLM</b>可以作为车载应用平台上的交规小助手，也可以作为有意向考取驾驶证同学进行题目问答解答的驾考小助手。
 </p>
 
 # TRLLM-Traffic-Rules-Assistant
