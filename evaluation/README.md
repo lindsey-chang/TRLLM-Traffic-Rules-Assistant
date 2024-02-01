@@ -22,7 +22,7 @@ python run.py --custom-dataset-path /root/data/eval_data/mcq_data.jsonl --hf-pat
 
 > python run.py \
 > --custom-dataset-path /root/data/eval_data/mcq_data.jsonl \ #自制的选择题问答形式的评测数据集
-> --hf-path /share/temp/model_repos/internlm-chat-7b/ \ # HuggingFace格式的模型的路径
+> --hf-path /share/temp/model_repos/internlm-chat-7b/ \ # HuggingFace格式的模型的路径-此处为基座大模型的路径
 > -此处测评基座模型`internlm-chat-7b`
 > --tokenizer-path /share/temp/model_repos/internlm-chat-7b/ \ # HuggingFace tokenizer 路径（如果与模型路径相同，可以省略
 > --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True \ # 构建 tokenizer 的参数
@@ -55,7 +55,7 @@ python run.py --custom-dataset-path /root/data/eval_data/mcq_data.jsonl --hf-pat
 
 > python run.py \
 > --custom-dataset-path /root/data/eval_data/mcq_data.jsonl \
-> --hf-path /root/TRLLM-Traffic-Rules-Assistant/finetune/merged \
+> --hf-path /root/TRLLM-Traffic-Rules-Assistant/finetune/merged \ # 此处为TRLLM-v1的路径
 > --tokenizer-path /root/TRLLM-Traffic-Rules-Assistant/finetune/merged \
 > --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True \
 > --model-kwargs trust_remote_code=True device_map='auto' \
@@ -65,8 +65,8 @@ python run.py --custom-dataset-path /root/data/eval_data/mcq_data.jsonl --hf-pat
 > --num-gpus 1 \
 > --debug
 
-![img.png](img.png)
-![img_1.png](img_1.png)
+![eval-on-TRLLM-v1.png](../assets/eval-on-TRLLM-v1.png)
+![eval-on-TRLLM-v1.png-2](../assets/eval-on-TRLLM-v1-2.png)
 
 - **评测结果**：
 
