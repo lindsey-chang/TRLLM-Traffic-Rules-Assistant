@@ -1,4 +1,16 @@
 import json
+import random
+def shuffle_json_file(input_file_name, output_file_name):
+    # 读取 JSON 数据
+    with open(input_file_name, 'r', encoding='utf-8') as file:
+        json_data = json.load(file)
+
+    # 打乱 JSON 对象的顺序
+    random.shuffle(json_data)
+
+    # 保存打乱顺序后的 JSON 数据
+    with open(output_file_name, 'w', encoding='utf-8') as file:
+        json.dump(json_data, file, ensure_ascii=False, indent=4)
 
 def get_json_from_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:

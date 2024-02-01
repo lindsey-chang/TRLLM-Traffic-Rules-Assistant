@@ -85,3 +85,6 @@ print(len(llm_json_structure))
 file_name = 'llm_conversation_dataset_merge_v1.json'
 json_data_m=get_json_from_file(file_name)
 print(len(json_data_m))
+
+# 打乱数据集顺序
+shuffle_json_file("llm_conversation_dataset_merge_v1.json","llm_conversation_dataset_merge_random_v1.json")
