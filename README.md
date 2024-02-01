@@ -1,5 +1,5 @@
 
-<br />
+
 <!-- PROJECT LOGO -->
 
 <div align="center">
@@ -9,7 +9,7 @@
 <h3 align="center">TRLLM</h3>
 </div>
 
----
+<br />
 
 # TRLLM-Traffic-Rules-Assistant
 
