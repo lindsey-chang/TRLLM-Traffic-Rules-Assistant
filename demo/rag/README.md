@@ -2,8 +2,8 @@
 `cd TRLLM-Traffic-Rules-Assistant/demo/rag`
 
 ### 创建环境
-`conda env create --name traffic_assistant_rag --file=environment.yml`
-`conda activate traffic_assistant_rag`
+`conda env create --name traffic_assistant_rag --file=environment.yml` <br>
+`conda activate traffic_assistant_rag` <br>
 `pip install -r requirements.txt`
 
 ### 下载所需模型（internlm2-chat-7b，sentence-transformer）
