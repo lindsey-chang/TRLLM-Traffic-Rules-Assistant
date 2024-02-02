@@ -13,4 +13,4 @@
 `python create_db.py`
 
 ### streamlit，启动！
-`streamlit run /root/traffic_assistant_rag/web_demo.py --server.address 127.0.0.1 --server.port 6006`
+`streamlit run web_demo.py --server.address 127.0.0.1 --server.port 6006`
