@@ -1,6 +1,18 @@
 import json
 import random
 
+
+def read_and_expand_json_file(input_file_path, expansion_factor=5):
+    """
+    读取 JSON 文件并将其内容扩充指定的倍数。
+    """
+    with open(input_file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    expanded_data = data * expansion_factor
+    return expanded_data
+
+
 def count_jsonl_objects_in_file(filename):
     try:
         with open(filename, 'r', encoding='utf-8') as file:
@@ -45,7 +57,7 @@ def get_json_from_file(file_name):
         json_data = json.load(file)
     return json_data
 
-def save_to_json_file(json_data, file_name):
+def save_json_to_file(json_data, file_name):
     with open(file_name, 'w', encoding='utf-8') as file:
         json.dump(json_data, file, ensure_ascii=False, indent=4)
 

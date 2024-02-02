@@ -1,6 +1,6 @@
 import re
 import json
-from script.file_opration import save_to_json_file
+from script.file_opration import save_json_to_file
 
 def extract_question_text(text):
     # 使用正则表达式匹配所需文本
@@ -88,4 +88,4 @@ for item in json_data:
     print(json_object)
 
 # 保存到文件（原始数据集）
-save_to_json_file(struct_json_data, 'json/struc_json/structqa_raw.json')
+save_json_to_file(struct_json_data, 'json/struc_json/structqa_raw.json')

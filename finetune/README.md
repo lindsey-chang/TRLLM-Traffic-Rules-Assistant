@@ -5,3 +5,5 @@
 conda activate xtunernew
 pip freeze > requirements.txt
 ```
+
+![img.png](img.png)

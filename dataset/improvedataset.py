@@ -1,6 +1,6 @@
 import re
 import json
-from script.file_opration import save_to_json_file
+from script.file_opration import save_json_to_file
 def is_picture_question(json_object):
     # 检查 'question' 属性中是否包含 ![任意字符] 的模式
     return bool(re.search(r'!\[.*?\]', json_object.get("question", "")))
@@ -47,6 +47,6 @@ print(f"picture_json_list length is {len(picture_json_list)}")
 print(f"text_json_list length is {len(text_json_list)}")
 
 # 保存到文件（图片数据集）
-save_to_json_file(picture_json_list, 'json/struc_json/structqa_picture.json')
+save_json_to_file(picture_json_list, 'json/struc_json/structqa_picture.json')
 # 保存到文件（文本数据集）
-save_to_json_file(text_json_list, 'json/struc_json/structqa_text.json')
+save_json_to_file(text_json_list, 'json/struc_json/structqa_text.json')
