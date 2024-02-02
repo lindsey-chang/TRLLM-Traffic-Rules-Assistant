@@ -1,10 +1,6 @@
 # TRLLM-Traffic-Rules-Assistant
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![Stargazers][stars-shield]][stars-url]
+
 
 
 <!-- PROJECT LOGO -->
