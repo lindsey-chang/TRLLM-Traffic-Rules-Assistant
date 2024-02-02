@@ -71,6 +71,6 @@ def merge_and_save_json_files(file1_path, file2_path, output_file_path):
 # print(f"文件'{jsonl_file_name}'中包含的JSON对象数量：{count_jsonl_objects_in_file(jsonl_file_name)}")
 
 # 示例使用
-file_name = '../dataset/llm_conversation_dataset_merge_random_v1.json'
+file_name = '../dataset/json/finetune_json/llm_conversation_dataset_merge_random_v1.json'
 # llm_conversation_dataset_merge_random_v1.json'中包含的JSON对象数量：40468
 print(f"文件'{file_name}'中包含的JSON对象数量：{count_json_objects_in_file(file_name)}")

@@ -68,7 +68,7 @@ def create_json_object(question, choose, answer, explanation):
 
 
 # 读取 JSON 数据
-file_name = 'rawtext.json'
+file_name = 'json/raw_json/rawtext.json'
 with open(file_name, 'r', encoding='utf-8') as file:
     json_data = json.load(file)
 
@@ -88,4 +88,4 @@ for item in json_data:
     print(json_object)
 
 # 保存到文件（原始数据集）
-save_to_json_file(struct_json_data, 'structqa_raw.json')
+save_to_json_file(struct_json_data, 'json/struc_json/structqa_raw.json')

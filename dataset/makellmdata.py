@@ -55,7 +55,7 @@ def create_json_object(system, input, output):
 # 创建一个新的 JSON 文件结构用于存储符合模型训练数据集格式的json文件
 llm_json_structure = []
 # 读取 JSON 数据
-file_name = 'structqa_text.json'
+file_name = 'json/struc_json/structqa_text.json'
 json_data=get_json_from_file(file_name)
 
 system = "你现在是一名道路安全规则专家，你需要帮助用户解答各种交通规则问题以及向用户提供驾驶车辆需要了解的各种知识，你需要给出专业、可靠、有逻辑的回答，同时用词还需要具有亲和力。"
@@ -74,9 +74,10 @@ print(len(llm_json_structure))
 #
 # merge_and_save_json_files("llm_conversation_dataset_v1.json", "self_introduction.json",
 #                           "llm_conversation_dataset_merge_v1.json")
-file_name = 'llm_conversation_dataset_merge_v1.json'
+file_name = 'json/finetune_json/llm_conversation_dataset_merge_v1.json'
 json_data_m=get_json_from_file(file_name)
 print(len(json_data_m))
 
 # 打乱数据集顺序
-shuffle_json_file("llm_conversation_dataset_merge_v1.json","llm_conversation_dataset_merge_random_v1.json")
+shuffle_json_file("json/finetune_json/llm_conversation_dataset_merge_v1.json",
+                  "json/finetune_json/llm_conversation_dataset_merge_random_v1.json")

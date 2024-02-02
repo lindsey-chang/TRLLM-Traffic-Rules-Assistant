@@ -3,8 +3,6 @@ from script.file_opration import *
 import string
 
 
-
-
 def create_mcq_json_object(question,choose_list,answer):
 
     # 创建一个空的JSON对象
@@ -48,10 +46,10 @@ def create_json_object(system, input, output):
     }
 
 # 读取 JSON 数据
-file_name = '../structqa_text.json'
+file_name = '../json/struc_json/structqa_text.json'
 json_data=get_json_from_file(file_name)
 # 指定要写入的JSONL文件路径
-jsonl_filename = "mcq_data.jsonl"
+jsonl_filename = "../json/eval_jsonl/mcq_data.jsonl"
 
 total_json_number=0
 with open(jsonl_filename, 'w', encoding='utf-8') as file:
@@ -71,5 +69,3 @@ with open(jsonl_filename, 'w', encoding='utf-8') as file:
             total_json_number+=1
 
 print(f"mcq_data.jsonl has {total_json_number} rows data")
-
-

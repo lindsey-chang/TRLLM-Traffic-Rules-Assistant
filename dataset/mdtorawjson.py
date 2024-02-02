@@ -43,7 +43,7 @@ for i, question in enumerate(questions, start=1):
 # 转换为JSON格式的字符串
 json_output = json.dumps(json_data, ensure_ascii=False, indent=4)# ensure_ascii=False允许输出字符串包含非 ASCII 字符，比如 Unicode 字符（例如中文、日文、特殊符号等）。
 # 将JSON字符串存储到文件
-with open('rawtext.json', 'w', encoding='utf-8') as file:
+with open('json/raw_json/rawtext.json', 'w', encoding='utf-8') as file:
     file.write(json_output)
 
 print(json_output)

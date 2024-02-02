@@ -22,7 +22,7 @@ def improve_explanation(explanation):
     return improved_results
 
 # 读取 JSON 数据
-file_name = 'structqa_raw.json'
+file_name = 'json/struc_json/structqa_raw.json'
 with open(file_name, 'r', encoding='utf-8') as file:
     json_data = json.load(file)
 
@@ -47,6 +47,6 @@ print(f"picture_json_list length is {len(picture_json_list)}")
 print(f"text_json_list length is {len(text_json_list)}")
 
 # 保存到文件（图片数据集）
-save_to_json_file(picture_json_list, 'structqa_picture.json')
+save_to_json_file(picture_json_list, 'json/struc_json/structqa_picture.json')
 # 保存到文件（文本数据集）
-save_to_json_file(text_json_list, 'structqa_text.json')
+save_to_json_file(text_json_list, 'json/struc_json/structqa_text.json')
