@@ -44,7 +44,6 @@ def extract_choiceslist_from_answer(choose, answer):
 
 
 def create_json_object(system, input, output):
-
     return {
         "system": system,
         "input": input,
@@ -56,7 +55,7 @@ def create_json_object(system, input, output):
 llm_json_structure = []
 # 读取 JSON 数据
 file_name = 'json/struc_json/structqa_text.json'
-json_data=get_json_from_file(file_name)
+json_data = get_json_from_file(file_name)
 
 system = "你现在是一名道路安全规则专家，你需要帮助用户解答各种交通规则问题以及向用户提供驾驶车辆需要了解的各种知识，你需要给出专业、可靠、有逻辑的回答，同时用词还需要具有亲和力。"
 for item in json_data:
@@ -65,19 +64,24 @@ for item in json_data:
     json_object = create_json_object(system, input, output)
     llm_json_structure.append({"conversation": [json_object]})
 
-llm_json_structure = llm_json_structure * 10  # 因原始数据集条数太少，故将数据集扩充10倍
+llm_json_structure = llm_json_structure * 5  # 因原始数据集条数太少，故将数据集扩充10倍(v1-new版本改为扩展5倍，因为我们有了基于文心一言优化用词的v3)
 print(len(llm_json_structure))
-# # 将最终结构保存到新的 JSON 文件中
-# output_file_name = 'llm_conversation_dataset_v1.json'
-# with open(output_file_name, 'w', encoding='utf-8') as file:
-#     json.dump(llm_json_structure, file, ensure_ascii=False, indent=4)
-#
-# merge_and_save_json_files("llm_conversation_dataset_v1.json", "self_introduction.json",
-#                           "llm_conversation_dataset_merge_v1.json")
-file_name = 'json/finetune_json/llm_conversation_dataset_merge_v1.json'
-json_data_m=get_json_from_file(file_name)
+
+# 将最终结构保存到新的 JSON 文件中
+output_file_name = './json/finetune_json/llm_conversation_dataset_v1_new.json'
+with open(output_file_name, 'w', encoding='utf-8') as file:
+    json.dump(llm_json_structure, file, ensure_ascii=False, indent=4)
+
+merge_and_save_json_files("./json/finetune_json/llm_conversation_dataset_v1_new.json", "./json/finetune_json/self_introduction.json",
+                          "./json/finetune_json/llm_conversation_dataset_merge_v1_new.json")
+
+merge_and_save_json_files("./json/finetune_json/llm_conversation_dataset_merge_v1_new.json", "./json/finetune_json/llm_conversation_dataset_v3.json",
+                          "./json/finetune_json/llm_conversation_dataset_merge_new.json")
+
+file_name = './json/finetune_json/llm_conversation_dataset_merge_new.json'
+json_data_m = get_json_from_file(file_name)
 print(len(json_data_m))
 
 # 打乱数据集顺序
-shuffle_json_file("json/finetune_json/llm_conversation_dataset_merge_v1.json",
-                  "json/finetune_json/llm_conversation_dataset_merge_random_v1.json")
+shuffle_json_file("./json/finetune_json/llm_conversation_dataset_merge_new.json",
+                  "./json/finetune_json/llm_conversation_dataset_merge_random_new.json")

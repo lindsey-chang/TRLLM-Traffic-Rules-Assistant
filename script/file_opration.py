@@ -44,6 +44,7 @@ def get_json_from_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:
         json_data = json.load(file)
     return json_data
+
 def save_to_json_file(json_data, file_name):
     with open(file_name, 'w', encoding='utf-8') as file:
         json.dump(json_data, file, ensure_ascii=False, indent=4)
@@ -66,11 +67,19 @@ def merge_and_save_json_files(file1_path, file2_path, output_file_path):
 
     return merged_data
 
-# 示例使用
-# jsonl_file_name = 'your_file.jsonl'
-# print(f"文件'{jsonl_file_name}'中包含的JSON对象数量：{count_jsonl_objects_in_file(jsonl_file_name)}")
 
-# 示例使用
-file_name = '../dataset/json/finetune_json/llm_conversation_dataset_merge_random_v1.json'
-# llm_conversation_dataset_merge_random_v1.json'中包含的JSON对象数量：40468
-print(f"文件'{file_name}'中包含的JSON对象数量：{count_json_objects_in_file(file_name)}")
+if __name__ == '__main__':
+
+    # 示例使用
+    # jsonl_file_name = 'your_file.jsonl'
+    # print(f"文件'{jsonl_file_name}'中包含的JSON对象数量：{count_jsonl_objects_in_file(jsonl_file_name)}")
+
+    # 示例使用
+    file_name = '../dataset/json/finetune_json/llm_conversation_dataset_merge_random_v1.json'
+    # llm_conversation_dataset_merge_random_v1.json'中包含的JSON对象数量：40468
+    print(f"文件'{file_name}'中包含的JSON对象数量：{count_json_objects_in_file(file_name)}")
+
+    # 示例使用
+    file_name = '../dataset/json/finetune_json/llm_conversation_dataset_v3.json'
+    # 文件'../dataset/json/finetune_json/llm_conversation_dataset_v3.json'中包含的JSON对象数量：1596
+    print(f"文件'{file_name}'中包含的JSON对象数量：{count_json_objects_in_file(file_name)}")

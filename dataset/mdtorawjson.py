@@ -1,6 +1,6 @@
 import re
 import json
-from checkmd import check_question_number
+from script.checkmd import check_question_number
 
 # 原始无格式文本['course1-1-100.md','course1-101-200.md','course1-201-300.md','course1-301-500.md','course1-501-700.md','course1-701-846.md']
 file_names = ['./md/course1-1-100.md','./md/course1-101-200.md','./md/course1-201-300.md','./md/course1-301-500.md','./md/course1-501-700.md','./md/course1-701-846.md', './md/course4-1-100.md', './md/course4-101-250.md', './md/course4-251-350.md', './md/course4-351-450.md',
