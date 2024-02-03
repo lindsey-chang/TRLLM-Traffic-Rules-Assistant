@@ -33,6 +33,20 @@
 
 ### 处理原始数据
 
+#### Doc转markdown格式
+
+对于用作微调用途的，有解析的题库，首先我们使用[doc转md格式的在线工具](https://products.aspose.app/words/conversion/word-to-md)，将doc转换为更为结构化的文本，以便于后续的处理。
+
+#### markdown转raw_json
+> 由代码[mdtorawjson.py](mdtorawjson.py)实现。
+
+#### raw_json转struc_json
+>[strucjson.py](strucjson.py)
+
+#### struct_json转finetune_json
+>[makellmdata.py](makellmdata.py)
+
+
 
 picture_json_list length is 1352
 text_json_list length is 1646
