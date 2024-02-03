@@ -43,5 +43,5 @@
 
 ## 总结
 
-如何想询问跟交通法规相关的建议使用基于 internlm2-chat-7b 为基座模型的 Ensemble Retriever，这是因为rag数据集收集了相对全面的法规，而且微调后的模型存在知识覆盖的情况。反之如果想询问驾考方面推荐使用 TRLLM-v2 + Multi Query Retriever。
+如何想询问跟交通法规相关的建议使用基于 internlm2-chat-7b 为基座模型的 Ensemble Retriever，这是因为rag数据集收集了相对全面的法规，而且微调后的模型存在知识覆盖的情况。反之如果想询问驾考方面推荐使用 TRLLM-v2 + Multi Query Retriever（表现不太稳定）。
 
