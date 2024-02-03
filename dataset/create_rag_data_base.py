@@ -73,11 +73,11 @@ text_splitter = RecursiveCharacterTextSplitter(
 split_docs = text_splitter.split_documents(docs)
 
 # 加载开源词向量模型
-embeddings = HuggingFaceEmbeddings(model_name="./model/sentence-transformer")
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
 # 构建向量数据库
 # 定义持久化路径
-persist_directory = './data_base/vector_db/rag_datasets'
+persist_directory = './rag_data_base/vector_db/rag_datasets'
 # 加载数据库
 vectordb = Chroma.from_documents(
     documents=split_docs,
@@ -88,6 +88,6 @@ vectordb = Chroma.from_documents(
 vectordb.persist()
 
 
-with open("./data_base/combine.txt", 'w', encoding='utf-8') as output_file:
+with open("./rag_data_base/combine.txt", 'w', encoding='utf-8') as output_file:
     for doc in docs:
         output_file.write(doc.page_content + '\n\n')
