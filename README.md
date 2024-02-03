@@ -13,7 +13,7 @@
 ![](https://img.shields.io/github/contributors/lindsey-chang/TRLLM-Traffic-Rules-Assistant.svg?style=flat-square)<span>&nbsp;&nbsp;</span>
 ![](https://img.shields.io/github/forks/lindsey-chang/TRLLM-Traffic-Rules-Assistant.svg?style=flat-square)<span>&nbsp;&nbsp;</span>
 ![](https://img.shields.io/github/issues/lindsey-chang/TRLLM-Traffic-Rules-Assistant.svg?style=flat-square)<span>&nbsp;&nbsp;</span>
-![](https://img.shields.io/github/license/lindsey-chang/TRLLM-Traffic-Rules-Assistant.svg?style=flat-square&color=greeen)<span>&nbsp;&nbsp;</span>
+![License](https://img.shields.io/badge/license-MIT-green.svg)<span>&nbsp;&nbsp;</span>
 ![](https://img.shields.io/github/stars/lindsey-chang/TRLLM-Traffic-Rules-Assistant.svg?style=flat-square)
 
 <p>
@@ -25,17 +25,17 @@
 
 ## Features
 
-- [**经过筛选的高质量结构化交通知识数据集**]()
+- [**经过筛选的高质量结构化交通知识数据集**](./dataset/)
   ：我们的数据集包含了科目一和科目四的题库，对原始题库，我们进行了一系列的JSON结构化（`TRLLM-v1`
   的训练数据集）。为了进一步提高数据集的质量，我们利用现有商业大模型api对数据集进行了扩展。这一扩展使得数据更加贴近人类提问的语言习惯，并确保问题的逻辑前后语序更为连贯（`TRLLM-v2`
   的训练数据集）。另外，我们还生成了自我认知数据集。
-- [**有监督微调**]()：基于上述三种数据集，我们以InternLM2-chat-7B为基座模型进行了有监督微调。
-- [**检索增强生成**]():
+- [**有监督微调**](./finetune/)：基于上述三种数据集，我们以InternLM2-chat-7B为基座模型进行了有监督微调。TRLLM-Model-v1是基于科目一科目四题库解析、自我认知数据集的。TRLLM-Model-v2是基于商业大模型api扩展数据集和自我认知数据集的。
+- [**检索增强生成**](./rag/):
   我们建立了一个向量数据库，其中包含有关《中华人民共和国公安部令》和《中华人民共和国国务院令》的相关交通法规，以及机动车驾驶证考核相关的资料，流程，以及诀窍。基于langchain技术，我们构建了一个多查询混合搜索的检索架构，以提高信息检索的准确性以多样性。
-- [**量化模型**]()：我们使用LMDeploy工具对微调后的模型进行W4A16量化和KV Cache量化，以在实际部署中降低模型的显存开销和提高模型的运行效率。
-- [**客观评测**]()：我们使用OpenCompass对模型进行了客观评测，考察其在科目一和科目四考试题库下做选择题`MCQ`
+- [**量化模型**](./quant/)：我们使用LMDeploy工具对微调后的模型进行W4A16量化和KV Cache量化，以在实际部署中降低模型的显存开销和提高模型的运行效率。
+- [**客观评测**](./evaluation/)：我们使用OpenCompass对模型进行了客观评测，考察其在科目一和科目四考试题库下做选择题`MCQ`
   的准确性，同时对比较了TRLLM-Model的4个不同的版本`TRLLM-v1`、`TRLLM-v2`、`TRLLM-v1-4bit`量化版本、`TRLLM-v2-4bit`
-  量化版本和`InternLM-chat-7b`在我们自制的评测数据集上的准确率表现，从而评估TRLLM基于交通知识进行微调的效果，并判断这4种TRLLM-Model哪一个准确率最高，可以部署在生产应用场景。
+  量化版本和`InternLM-chat-7b`在我们自制的评测数据集上的准确率表现，从而评估TRLLM基于交通知识进行微调的效果，并判断这4种TRLLM-Model哪一个准确率最高，可以部署在生产应用场景。**经过客观评测，我们得出了`TRLLM-v2`的准确率最高**。
 
 ## Released Models
 
@@ -79,6 +79,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 #### 运行结果摘要
 可以在左侧设置是否开启RAG
+
 ![xlab.png](assets/xlab.png)
 ![xlab-1.png](assets/xlab-1.png)
 ![xlab-2.png](assets/xlab-2.png)
