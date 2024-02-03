@@ -54,12 +54,12 @@ TRLLM-Traffic-Rules-Assistant
 默认所有 web_demo 脚本运行的都是 TRLLM-v2 模型，可根据提供的模型下载链接自行下载替换不同版本的模型。
 
 ### 配置环境
-'''
+```bash
 conda env create --name traffic_assistant_rag --file=environment.yml
 conda activate traffic_assistant_rag
 pip install -r requirements.txt
 python download_turbomind.py
-'''
+```
 
 ### 启动 Streamlit
 `streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server.port 6006`
