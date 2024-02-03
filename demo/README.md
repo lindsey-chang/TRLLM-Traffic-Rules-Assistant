@@ -3,9 +3,9 @@
 
 此文件夹中收录部署到xlab上所需要的文件夹 （作为备用）
 
-`traffic_assistant_xlab-TRLLM-v2-EnsembleRetriever` ：基于internlm2-chat-7b 微调的 TRLLM-v2 
+`traffic_assistant_xlab-TRLLM-v2-EnsembleRetriever` ：基于 internlm2-chat-7b 微调的 TRLLM-v2 (Ensemble Retriver)
 
-`traffic_assistant_xlab-TRLLM-v2-W4A16-EnsembleRetriever` ： TRLLM-v2 的 4bit 量化版本
+`traffic_assistant_xlab-TRLLM-v2-W4A16-EnsembleRetriever` ： TRLLM-v2 的 4bit 量化版本 (Ensemble Retriver)
 
 ## Xlab 仓库
 如果需要部署到xlab，请 `git clone` 以下对应的链接
