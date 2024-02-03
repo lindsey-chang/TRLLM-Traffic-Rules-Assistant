@@ -9,6 +9,7 @@
 
 ## Xlab 仓库
 如果需要部署到xlab，请 `git clone` 以下对应的链接
+
 [traffic_assistant_xlab-TRLLM-v2-EnsembleRetriever](https://github.com/tackhwa/traffic_assistant_xlab/tree/TRLLM-v2-EnsembleRetriever)
 
 [traffic_assistant_xlab-TRLLM-v2-W4A16-EnsembleRetriever](https://github.com/tackhwa/traffic_assistant_xlab/tree/TRLLM-v2-W4A16-EnsembleRetriever)
