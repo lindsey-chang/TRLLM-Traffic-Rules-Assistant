@@ -18,6 +18,6 @@
   
 | Ensemble Retriver  | Multi Query Retriever |
 |--------------------|-----------------------|
-| [compare1-er.png](../assets/compare1-er.png.png) | [compare1-mqr.pngpng](../assets/compare1-mqr.png)  |
+| [compare1-er.png](../assets/compare1-er.png) | [compare1-mqr.pngpng](../assets/compare1-mqr.png)  |
 
 经过对比发现，Multi Query Retriever相较于Ensemble Retriever更能输出详尽的法规细节。然而，这取决于Multi Query Retriever输出的额外提问。在额外提问偏离主题的情况下，Ensemble Retriever的性能可能更为出色。这强调了基座模型对prompt理解和关联相关提问的能力的重要性。实验证明，在某些情况下，7B模型生成的额外提问会偏离主题。
