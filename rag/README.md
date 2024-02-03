@@ -18,7 +18,7 @@
   
 | Ensemble Retriver  | Multi Query Retriever |
 |--------------------|-----------------------|
-| [compare1-er.png](../assets/compare1-er.png) | [compare1-mqr.png](../assets/compare1-mqr.png)  |
+| ![compare1-er.png](../assets/compare1-er.png) | ![compare1-mqr.png](../assets/compare1-mqr.png)  |
 
 经过对比发现，Multi Query Retriever相较于Ensemble Retriever更能输出详尽的法规细节。然而，这取决于Multi Query Retriever输出的额外提问。在额外提问偏离主题的情况下，Ensemble Retriever的性能可能更为出色。这强调了基座模型对prompt理解和关联相关提问的能力的重要性。实验证明，在某些情况下，7B模型生成的额外提问会偏离主题。
 
@@ -26,9 +26,9 @@
 
 | TRLLM-v2 | TRLLM-v2 + Ensemble Retriver  | TRLLM-v2 + Multi Query Retriever |
 | ------- |--------------------|-----------------------|
-| [compare2-trllm-v2.png](../assets/compare2-trllm-v2.png) | [compare2-er.png](../assets/compare2-er.png) | [compare2-mqr.png](../assets/compare2-mqr.png)  |
+| ![compare2-trllm-v2.png](../assets/compare2-trllm-v2.png) | ![compare2-er.png](../assets/compare2-er.png) | ![compare2-mqr.png](../assets/compare2-mqr.png)  |
 
-[compare2-prompt.png](../assets/compare2-prompt.png) 
+![compare2-prompt.png](../assets/compare2-prompt.png) 
 
 原生TRLLM-v2和使用Ensemble Retriever时的结果相似，而Multi Query Retriever在TRLLM-v2上能够提供一些额外信息，但整体差距不大。经过测试发现，TRLLM-v2的知识覆盖了RAG输出的知识，也就是说，当启用RAG时，如果用户提出的问题超出了 TRLLM-v2 的知识范围，但在 RAG 涵盖的领域内，模型也无法回答该问题。简言之，RAG的作用主要是为TRLLM-v2的输出添加一些细节（取决于输出额外提问的关联性以及多样性），有时甚至没有。此外，正如图中所示，TRLLM-v2存在不受prompt影响的情况，原本应该输出额外提问变成输出了答案。综上所述，TRLLM-v2可能存在过拟合的现象。
 
@@ -37,7 +37,7 @@
 
 | TRLLM-v2-4bit | TRLLM-v2-4bit + Ensemble Retriver  | TRLLM-v2-4bit + Multi Query Retriever |
 | ------- |--------------------|-----------------------|
-| [compare3-trllm.png](../assets/compare3-trllm.png) | [compare3-er.png](../assets/compare3-er.png) | [compare3-mqr.png](../assets/compare3-mqr.png)  |
+| ![compare3-trllm.png](../assets/compare3-trllm.png) | ![compare3-er.png](../assets/compare3-er.png) | ![compare3-mqr.png](../assets/compare3-mqr.png)  |
 
 量化后的模型的效果差了不少，知识覆盖的情况也没有改善。
 
