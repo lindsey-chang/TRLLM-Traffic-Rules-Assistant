@@ -28,7 +28,7 @@
 - [**经过筛选的高质量结构化交通知识数据集**](./dataset/)
   ：我们的数据集包含了科目一和科目四的题库，对原始题库，我们进行了一系列的JSON结构化（`TRLLM-v1`
   的训练数据集）。为了进一步提高数据集的质量，我们利用现有商业大模型api对数据集进行了扩展。这一扩展使得数据更加贴近人类提问的语言习惯，并确保问题的逻辑前后语序更为连贯（`TRLLM-v2`
-  的训练数据集）。另外，我们还生成了自我认知数据集。
+  的训练数据集）。另外，我们还生成了自我认知数据集。根据另一份只有答案没有解析的科目一科目四选择题题库，自制了客观评测数据集，用于评测比较TRLLM与InternLM2-chat-7B在交通知识上的客观推理能力。用于微调和评测的数据集分开制作没有交叉，确保评测结果真实可靠。
 - [**有监督微调**](./finetune/)：基于上述三种数据集，我们以InternLM2-chat-7B为基座模型进行了有监督微调。TRLLM-Model-v1是基于科目一科目四题库解析、自我认知数据集的。TRLLM-Model-v2是基于商业大模型api扩展数据集和自我认知数据集的。
 - [**检索增强生成**](./rag/):
   我们建立了一个向量数据库，其中包含有关《中华人民共和国公安部令》和《中华人民共和国国务院令》的相关交通法规，以及机动车驾驶证考核相关的资料，流程，以及诀窍。基于langchain技术，我们构建了一个多查询混合搜索的检索架构，以提高信息检索的准确性以多样性。
@@ -50,7 +50,7 @@
 
 ## 如何体验本项目
 
-### 克隆本项目到您的本地开发机上
+### 1. 克隆本项目到您的本地开发机上
 
 ```bash
 git clone https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant.git
@@ -73,7 +73,7 @@ python download_turbomind.py
 streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server.port 6006
 ```
 
-### 在OpenXlab上体验本项目
+### 2. 在OpenXlab上体验本项目
 
 [TRLLM-v2-Traffic-Assistant](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-Traffic-Assistant)
 
@@ -84,7 +84,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 ![xlab-1.png](assets/xlab-1.png)
 ![xlab-2.png](assets/xlab-2.png)
 
-### Xtuner chat体验微调后的模型
+### 3. Xtuner chat体验微调后的模型
 
 使用Xtuner chat直接测试发布在Model Scope上的TRLLM模型。
 
