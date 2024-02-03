@@ -13,9 +13,12 @@
 
 
 ### 处理原始数据 
-（小标题可更改为你觉得更合适的）
+手工整理、整合数据，将所有数据统一为`txt`格式。
 
 ## 微调数据集
+
+### 原始数据
+
 
 
 picture_json_list length is 1352
@@ -42,3 +45,5 @@ file_name = './json/finetune_json/llm_conversation_dataset_merge_new.json'
 json_data_m = get_json_from_file(file_name)
 print(len(json_data_m))
 ```
+
+## 评测数据集
