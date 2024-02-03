@@ -5,9 +5,8 @@
 ## 生成Prompt
 ![multi-query-prompt.png](../assets/MultiQueryPrompt.png)
 上图显示了用于引导模型生成额外提问的提示方式。
-</br>
-</br>
-![extra-query-generated.png](../assets/MultiQueryPrompt.png)
+
+![extra-query-generated.png](../assetsextra-query-generated.png)
 上图展示了针对用户提问 “酒驾怎么罚？” 生成的额外3个提问。
 
 ## 结果对比
