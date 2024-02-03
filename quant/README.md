@@ -3,7 +3,8 @@
 该部分主要是目的是使用**KV Cache量化**和**模型参数量化**来达到以参数或计算中间结果精度下降换空间的目的。
 使用改方法之后，明显看到**模型的显存和内存占用大大减少**。
 
-##  KV Cache 量化
+## KV Cache 量化
+
 KV Cache 量化是将已经生成序列的 KV 变成 Int8
 
 - 计算 minmax
@@ -26,7 +27,7 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   ```
   lmdeploy chat turbomind trll2-model-kv_turbomind --model-format awq --quant-policy 4
   ```
-  ![启动kvcache模型](启动kvcache模型.png)
+  ![启动kvcache模型](../assets/启动kvcache模型.png)
 
 - 将TRLLM-Model-v2模型转化成turbomind 格式
   ```
@@ -37,10 +38,7 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   lmdeploy chat turbomind ./workspace_trll2_model_turbomind --model-format awq --quant-policy 4
   ```
 
-
-
-##  4bit 量化
-
+## 4bit 量化
 
 - 计算 minmax
   ```
@@ -59,10 +57,9 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   ```
   lmdeploy chat turbomind ./workspace_trll2_model_4bit_turbomind --model-format awq --quant-policy 4
   ```
-  ![4bit量化后的模型](4bit量化后的模型.png)
+  ![4bit量化后的模型](../assets/4bit量化后的模型.png)
 
-##  4bit 量化 + KV Cache 量化 
-
+## 4bit 量化 + KV Cache 量化
 
 - 获取量化参数（注意此时是把结果放到 turbomind的模型weight目录下
   ```
@@ -73,10 +70,7 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   ```
   lmdeploy chat turbomind workspace_trll2_model_4bit_turbomind --model-format awq --quant-policy 4
   ```
-  ![Alt text](4bit+kvcache模型.png)
-
-
-
+  ![Alt text](../assets/4bit+kvcache模型.png)
 
 # 模型测评
 
@@ -90,17 +84,16 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
 
 ## 测评结果
 
-
-| 模型名称               | 内存占用(MiB) | 显存占用(MiB) | opencompass测评 | 优化点                                        |
-| ---------------------- | ------------- | ------------- | --------------- | --------------------------------------------- |
-| internlm2-chat-7b      | 15            | 15031         | 58.37           | 基座模型                                      |
-| TRLLM-Model-v1         | 29            | 15273         | 67.46           | 线下收集的数据集微调                          |
-| TRLLM-Model-v2         | 29            | 16103         | 69.83           | 线下收集的数据集+ 商业大模型进行数据扩展 微调 |
-| TRLLM-Model-v2-4bit    | 4.9           | 5577          | -               | 基于TRLLM-Model-v2 4bit量化                   |
-| TRLLM-Model-v2-4bit+kv | 5             | 6385          | -               | 基于TRLLM-Model-v2 4bit+kv量化                |
-
+| 模型名称                   | 内存占用(MiB) | 显存占用(MiB) | opencompass测评 | 优化点                        |
+|------------------------|-----------|-----------|---------------|----------------------------|
+| internlm2-chat-7b      | 15        | 15031     | 58.37         | 基座模型                       |
+| TRLLM-Model-v1         | 29        | 15273     | 67.46         | 线下收集的数据集微调                 |
+| TRLLM-Model-v2         | 29        | 16103     | 69.83         | 线下收集的数据集+ 商业大模型进行数据扩展 微调   |
+| TRLLM-Model-v2-4bit    | 4.9       | 5577      | -             | 基于TRLLM-Model-v2 4bit量化    |
+| TRLLM-Model-v2-4bit+kv | 5         | 6385      | -             | 基于TRLLM-Model-v2 4bit+kv量化 |
 
 ## 测评总结
+
 - 基于internlm2-chat-7b 模型，使用了线下收集的交通法规、驾考题等数据集，对模型进行了微调。
 - 利用opencompass对自己**生成测评数据集**进行了测评，从测评结果可以看出微调之后的模型相较于基座模型效果有明显的提升。
 - 利用了W4A16、KV Cache量化技术使模型的显存和内存占用大大减少
