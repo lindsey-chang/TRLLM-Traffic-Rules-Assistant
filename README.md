@@ -48,6 +48,25 @@ TRLLM-Traffic-Rules-Assistant
 | [TRLLM-v1-InternLM-chat-7B-Merged]()                                                                          |    在[llm_conversation_dataset_merge_random_v1.json]()上微调了一版InternLM2-chat-7B模型，发布完整权重                                 |
 | [TRLLM-v1InternLM-chat-7B-Merged-4bit]()                                                                      |  在TRLLM-v1-InternLM-chat-7B-Merged的基础上进行W4A16量化，发布完整权重                             |
 
+
+
+##  Inferencing
+默认所有 web_demo 脚本运行的都是 TRLLM-v2 模型，可根据提供的模型下载链接自行下载替换不同版本的模型。
+
+### 配置环境
+```bash
+conda env create --name traffic_assistant_rag --file=environment.yml
+conda activate traffic_assistant_rag
+pip install -r requirements.txt
+python download_turbomind.py
+```
+
+### 启动 Streamlit
+`streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server.port 6006`
+
+
+
+
 ## 目录
 - [TRLLM-交规小助手]()
   - [**环境配置**]()
