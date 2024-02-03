@@ -19,3 +19,4 @@ unstructured_inference
 pysqlite3-binary
 rank_bm25==0.2.2
 einops==0.7.0
+lmdeploy==0.2.1
