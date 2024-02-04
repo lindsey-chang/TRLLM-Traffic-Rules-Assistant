@@ -148,7 +148,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 #### 2. KV Cache 量化
 
 - 转换原始模型格式
-- 计算 minmax
+- 计算 minmax 
 - 获取量化参数(注意此时是把结果放到 turbomind的模型weight目录下)
 - 修改参数
 - 启动kvcache量化之后的模型
