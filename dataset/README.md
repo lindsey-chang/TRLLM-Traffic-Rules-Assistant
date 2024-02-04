@@ -199,41 +199,45 @@ contents1 = re.findall(r'】(.*?)【', text, re.DOTALL)
 contents2 = re.findall(r'】([^】]*)$', text, re.DOTALL)
 ```
 
-[improvedataset.py](improvedataset.py):
-
 #### struct_json转finetune_json
 
 > [makellmdata.py](makellmdata.py)
 
+##### 功能描述
+> [makellmdata.py](makellmdata.py)旨在为 `internML` 大模型训练准备交通规则问答数据集。通过精细的处理、合并和扩充步骤，我们生成了一个符合微调数据集格式要求的数据集。
+1. 从中[structqa_text.json](./dataset/json/struc_json/structqa_text.json)提取合并题目的选项、答案和解释文本。
+- 通过合并和格式化，创建符合模型训练需求的对话式数据结构。
+- 对数据集进行扩充，增加模型训练的数据量。(因原始数据集条数太少，故将数据集扩充10倍(v1-new版本改为扩展5倍，因为我们有了基于文心一言优化用词的v3)
+- 将扩充后的数据集与其他数据集合并，形成一个综合的训练资源库。
+- 执行数据集随机化，以确保训练过程的公正性和有效性。
+- 生成并保存最终的数据集，为基于`internml-chat-7b`进行微调的TRLLM模型训练提供支持。
+
 - **范例数据格式**：
-    - 问题`question`；
-    - 选项`choose`；
-    - 答案`answer`；
-    - 解答`explaination`；
+    - 一轮对话集`converstaion`；
+    - 系统prompt`system`；
+    - 用户输入`input`；
+    - 模型输出`output`；
 
-picture_json_list length is 1352
-text_json_list length is 1646
-
-8230
-7980
-33834
-
-```
-llm_json_structure = llm_json_structure * 5  # 因原始数据集条数太少，故将数据集扩充10倍(v1-new版本改为扩展5倍，因为我们有了基于文心一言优化用词的v3)
-print(len(llm_json_structure))
-
-# 扩充 llm_conversation_dataset_v3.json 数据集 5 倍
-v3_expanded_data = read_and_expand_json_file('./json/finetune_json/llm_conversation_dataset_v3.json', 5)
-
-# 保存扩充后的数据集
-v3_expanded_file_path = './json/finetune_json/llm_conversation_dataset_v3_expanded.json'
-print(len(v3_expanded_data))
-
-save_json_to_file(v3_expanded_data, v3_expanded_file_path)
-
-file_name = './json/finetune_json/llm_conversation_dataset_merge_new.json'
-json_data_m = get_json_from_file(file_name)
-print(len(json_data_m))
+```json
+[
+    {
+        "conversation": [
+            {
+                "system": "你现在是一名道路安全规则专家，你需要帮助用户解答各种交通规则问题以及向用户提供驾驶车辆需要了解的各种知识，你需要给出专业、可靠、有逻辑的回答，同时用词还需要具有亲和力。",
+                "input": "对未取得驾驶证驾驶机动车的，会追究其法律责任。",
+                "output": "正确。\n因为无证禁止驾车，违反依法追责。未取得驾驶证驾驶机动车，属于“无证驾驶”，将依法追究法律责任。未取得驾驶证驾驶机动车属于违法行为，将依法追究法律责任。根据《道路交通安全法》第九十九条，未取得机动车驾驶证、机动车驾驶证被吊销或者机动车驾驶证被暂扣期间驾驶机动车的，由公安机关交通管理部门处二百元以上二千元以下罚款，可以并处十五日以下拘留。"
+            }
+        ]
+    },
+    {
+        "conversation": [
+            {
+                "system": "你现在是一名道路安全规则专家，你需要帮助用户解答各种交通规则问题以及向用户提供驾驶车辆需要了解的各种知识，你需要给出专业、可靠、有逻辑的回答，同时用词还需要具有亲和力。",
+                "input": "驾驶机动车应随身携带哪种证件？",
+                "output": "驾驶证。\n因为两证两标一号牌，不带扣车还罚款。驾驶机动车应随车携带机动车行驶证、驾驶证，无论是电子版，还是纸质版，都需要随车携带。驾驶机动车上路行驶应随车携带驾驶证、行驶证。根据《道路交通安全法》第十九条，驾驶人应当按照驾驶证载明的准驾车型驾驶机动车；驾驶机动车时，应当随身携带机动车驾驶证。"
+            }
+        ]
+    },
 ```
 
 ## 评测数据集
