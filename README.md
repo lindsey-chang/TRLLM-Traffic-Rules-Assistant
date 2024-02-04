@@ -1,9 +1,8 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a href="https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant">
-    <img src="assets/logo.png" alt="Logo" width="30%">
+    <img src="assets/logo2.jpg" alt="Logo" width="100%">
   </a>
-<h3 align="center">TRLLM</h3>
 </div>
 
 <!-- PROJECT SHIELDS -->
@@ -27,7 +26,7 @@
 
 ---
 
-## Features
+## <img src="https://slackmojis.com/emojis/12597-meow_heart_bongo/download" width="30"/> Features
 
 - [**经过筛选的高质量结构化交通知识数据集**](./dataset/)
   ：我们的数据集包含了科目一和科目四的题库，对原始题库，我们进行了一系列的JSON结构化（`TRLLM-v1`
@@ -43,7 +42,7 @@
   量化版本和`InternLM-chat-7b`在我们自制的评测数据集上的准确率表现，从而评估TRLLM基于交通知识进行微调的效果，并判断这4种TRLLM-Model哪一个准确率最高，可以部署在生产应用场景。
   **经过客观评测，我们得出了`TRLLM-v2`的准确率最高**。
 
-## Released Models
+## <img src="https://slackmojis.com/emojis/46775-meow_noddies/download" width="30"/>Released Models
 
 | Model                                                                                                                                                                                                                                                       | Introduction                                                                                                                                                                                                                               |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,11 +53,11 @@
 
 ---
 
-## 如何体验本项目
+## <img src="https://slackmojis.com/emojis/6412-meow_popcorn/download" width="30"/>如何体验本项目
 
 关于各个版本的结果对比以及介绍，请移步到 [RAG](./rag/README.md)。
 
-### 运行脚本说明：
+### <img src="https://slackmojis.com/emojis/10521-meow_code/download" width="30"/>运行脚本说明：
 
 `web_demo_ensemble_retriever.py` ：TRLLM-v2 (Ensemble Retriever) 
 
@@ -82,7 +81,6 @@ git clone https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant.git
 #### 配置环境
 
 ```bash
-cd TRLLM-Traffic-Rules-Assistant
 conda env create --name trllm --file=environment.yml
 conda activate trllm
 pip install -r requirements.txt
@@ -125,7 +123,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ---
 
-## TRLLM-Traffic-Rules-Assistant 项目构建逻辑
+## <img src="https://slackmojis.com/emojis/60881-meow_attention/download" width="30"/>TRLLM-Traffic-Rules-Assistant 项目构建逻辑
 
 ### 数据构建
 #### 1. RAG数据集
@@ -196,10 +194,10 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ---
 
-## 后记
+## <img src="https://slackmojis.com/emojis/9845-meow_heart/download" width="30"/>后记
 
 ### TRLLM形象生成
-项目LOGO由DALL·E生成:
+项目LOGO由DALL·E和[logo.com](logo.com)生成:
 
 - Prompt:
 
@@ -214,9 +212,13 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 >
 > The main logo should just contain the letters: "TRLLM".  "TRLLM" needs to be directly below the circular logo!!! Both
 > the circular LOGO and the "TRLLM" text should be centered in the vertical direction (y-axis direction).
+
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=lindsey-chang/TRLLM-Traffic-Rules-Assistant&type=Date)](https://star-history.com/#lindsey-chang/TRLLM-Traffic-Rules-Assistant&Date)
+## Stats
+[![TRLLM GitHub stats](https://github-readme-stats.vercel.app/api?username=lindsey-chang)](https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant)
 ## 特别鸣谢
+- 所有贡献者
 - [书生·浦语](https://internlm.intern-ai.org.cn/)
 - [上海人工智能实验室](https://www.shlab.org.cn/)
 ## 项目贡献者
