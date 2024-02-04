@@ -82,8 +82,9 @@ git clone https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant.git
 #### 配置环境
 
 ```bash
-conda env create --name traffic_assistant_rag --file=environment.yml
-conda activate traffic_assistant_rag
+cd TRLLM-Traffic-Rules-Assistant
+conda env create --name trllm --file=environment.yml
+conda activate trllm
 pip install -r requirements.txt
 python download_turbomind.py
 ```
@@ -213,7 +214,12 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 >
 > The main logo should just contain the letters: "TRLLM".  "TRLLM" needs to be directly below the circular logo!!! Both
 > the circular LOGO and the "TRLLM" text should be centered in the vertical direction (y-axis direction).
-
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=lindsey-chang/TRLLM-Traffic-Rules-Assistant&type=Date)](https://star-history.com/#lindsey-chang/TRLLM-Traffic-Rules-Assistant&Date)
 ## 特别鸣谢
-
+- [书生·浦语](https://internlm.intern-ai.org.cn/)
+- [上海人工智能实验室](https://www.shlab.org.cn/)
 ## 项目贡献者
+<a href="https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=lindsey-chang/TRLLM-Traffic-Rules-Assistant" />
+</a>
