@@ -8,7 +8,7 @@
 `traffic_assistant_xlab-TRLLM-v2-W4A16-EnsembleRetriever` ： TRLLM-v2 的 4bit 量化版本 (Ensemble Retriver)
 
 ## Xlab 仓库
-如果需要部署到xlab，请 `git clone` 以下对应的链接
+如果需要部署到xlab，请 `git clone` 以下对应的链接，并且更改启动脚本为 `staart.py`
 
 [traffic_assistant_xlab-TRLLM-v2-EnsembleRetriever](https://github.com/tackhwa/traffic_assistant_xlab/tree/TRLLM-v2-EnsembleRetriever)
 

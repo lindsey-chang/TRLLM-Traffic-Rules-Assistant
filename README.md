@@ -55,6 +55,18 @@
 ---
 
 ## 如何体验本项目
+### 运行脚本说明：
+
+`web_demo_ensemble_retriever.py` ：TRLLM-v2 (Ensemble Retriever) 
+
+`web_demo_multi_retriever.py` : TRLLM-v2 (Multi Query Retriever Retriever)
+
+`web_demo_turbomind_ensemble_retriever.py` : TRLLM-v2-4bit (Ensemble Retriever)
+
+`web_demo_turbomind_multi_retriever.py` : TRLLM-v2-4bit (Multi Query Retriever Retriever)
+
+如果需要使用 `internlm2-chat-7b` 作为基座模型运行 Ensemble Retriever 或者 Multi Query Retriever，可将 `web_demo_ensemble_retriever.py` 和 `web_demo_multi_retriever.py` 里的模型路径换成 `internlm2-chat-7b` 的模型路径。
+
 
 ### 1. 克隆本项目到您的本地开发机上
 
