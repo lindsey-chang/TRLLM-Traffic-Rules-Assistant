@@ -9,7 +9,7 @@ Retriever），检索到的文档将被返回给LLM，以便对用户提出的�
 
 ![multi-query-prompt.png](../assets/MultiQueryPrompt.png)
 
-上图显示了用于引导模型生成额外提问的提示方式。
+上图显示了用于引导模型生成额外提问的prompt。
 
 ![extra-query-generated.png](../assets/extra-query-generated.png)
 
