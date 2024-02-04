@@ -138,25 +138,25 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 #### ２. 基于internml2-chat-7b进行QLoRA微调，使用**增强**后的指令跟随数据集`llm_conversation_dataset_merge_random_new.json`，迭代3个批次，在1/4A100上耗时约8小时。
 ### 量化部署
 
-#### 1. 4bit 量化
+#### 1. W4A16 量化
 
 - 计算 minmax
 - 量化权重模型
 - 量化后的模型转换成turbomind 格式
-- 启动4bit量化后的模型
+- 启动W4A16量化后的模型
 
 #### 2. KV Cache 量化
 
 - 转换原始模型格式
 - 计算 minmax
-- 获取量化参数（注意此时是把结果放到 turbomind的模型weight目录下
+- 获取量化参数(注意此时是把结果放到 turbomind的模型weight目录下)
 - 修改参数
 - 启动kvcache量化之后的模型
 
-#### 3. 4bit 量化 + KV Cache 量化
+#### 3. W4A16 量化 + KV Cache 量化
 
-- 获取量化参数（注意此时是把结果放到 4bit 量化turbomind的模型weight目录下
-- 启动4bit+kvcache模型
+- 获取量化参数(注意此时是把结果放到 W4A16 量化turbomind的模型weight目录下)
+- 启动W4A16+kvcache模型
 
 ### 评测分析
 自制的客观评测数据集：[mcq_data.jsonl](./dataset/json/eval_jsonl/mcq_data.jsonl)
