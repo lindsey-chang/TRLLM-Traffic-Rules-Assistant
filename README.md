@@ -82,8 +82,8 @@ git clone https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant.git
 #### 配置环境
 
 ```bash
-conda env create --name traffic_assistant_rag --file=environment.yml
-conda activate traffic_assistant_rag
+conda env create --name trllm --file=environment.yml
+conda activate trllm
 pip install -r requirements.txt
 python download_turbomind.py
 ```
