@@ -55,6 +55,9 @@
 ---
 
 ## 如何体验本项目
+
+关于各个版本的结果对比以及介绍，请移步到 [RAG](./rag/README.md)。
+
 ### 运行脚本说明：
 
 `web_demo_ensemble_retriever.py` ：TRLLM-v2 (Ensemble Retriever) 
@@ -93,7 +96,10 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ### 2. 在OpenXlab上体验本项目
 
-[TRLLM-v2-Traffic-Assistant](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-Traffic-Assistant)
+[TRLLM-v2-Traffic-Assistant (Ensemble Retriever)](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-Traffic-Assistant)
+
+[TRLLM-v2-4bit-Traffic-Assistant (Ensemble Retriever)](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-W4A16-Traffic-Assistant)
+
 
 #### 如果你想部署我们在OpenXlab上的项目
 [OpenXlab](./demo)
