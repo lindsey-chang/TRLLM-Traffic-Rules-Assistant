@@ -40,9 +40,7 @@
 > struct_json转finetune_json
 
 
-> *
-*[通过Google Drive访问我们微调阶段的数据集](https://drive.google.com/drive/folders/1g0N1qDH0WYPYmCthUZdDtVSolfOKo-UH?usp=sharing)
-**
+> **[通过Google Drive访问我们微调阶段的数据集](https://drive.google.com/drive/folders/1g0N1qDH0WYPYmCthUZdDtVSolfOKo-UH?usp=sharing)**
 
 ### 原始数据
 
