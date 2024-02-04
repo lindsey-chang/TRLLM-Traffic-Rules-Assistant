@@ -139,7 +139,7 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    tm_model = tm.TurboMind.from_pretrained(pretrained_model_name_or_path="./model/heitao5200/TRLLM-Model-4bit/workspace_trll2_model_4bit_turbomind",trust_remote_code=True)
+    tm_model = tm.TurboMind.from_pretrained(pretrained_model_name_or_path="./model/heitao5200/TRLLM-Model-4bit_turbomind/workspace_trll2_model_4bit_turbomind",trust_remote_code=True)
     generator = tm_model.create_instance()
     return tm_model, generator
 
