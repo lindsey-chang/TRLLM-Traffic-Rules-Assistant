@@ -45,12 +45,12 @@
 
 ## Released Models
 
-| Model                                                                                                                                                                                                                                                       | Introduction                                                                       |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| **TRLLM-v1** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model/summary"><img src="./assets/ms.png" width="20">           </a>                                                                                                                  | 在[llm_conversation_dataset_merge_random_v1.json]()上微调了一版InternLM2-chat-7B模型，发布完整权重 |
-| **TRLLM-v1-4bit**                  <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit/summary"> <img src="./assets/ms.png" width="20">    </a>                                                                                           | 在TRLLM-v1-InternLM-chat-7B-Merged的基础上进行W4A16量化，发布完整权重                              |
-| **TRLLM-v2** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model-v2/summary"><img src="./assets/ms.png" width="20"></a>    <a href="https://openxlab.org.cn/models/detail/Lindsey/TRLLM-Model-v2"><img src="./assets/xlab-i.png" width="20"></a> | 在[llm_conversation_dataset_merge_random_v1.json]()上微调了一版InternLM2-chat-7B模型，发布完整权重 |
-| **TRLLM-v2-4bit**                 <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit_turbomind/summary"><img src="./assets/ms.png" width="20">    </a>                                                                                                                                                                   | 在TRLLM-v1-InternLM-chat-7B-Merged的基础上进行W4A16量化，发布完整权重                              |
+| Model                                                                                                                                                                                                                                                       | Introduction                                                                                                                                                                                                                                  |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **TRLLM-v1** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model/summary"><img src="./assets/ms.png" width="20">           </a>                                                                                                                  | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_v1.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random.json) 数据集（包括科目一科目四带解释版题库和自我认知数据集，打乱顺序后混合而成）上进行微调，为了增加数据量将相同数据复制了10遍，共「40468」条数据，训练一个批次。            |
+| **TRLLM-v1-4bit**                  <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit/summary"> <img src="./assets/ms.png" width="20">    </a>                                                                                           | 基于TRLLM-v1进行W4A16量化。                                                                                                                                                                                                                          |
+| **TRLLM-v2** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model-v2/summary"><img src="./assets/ms.png" width="20"></a>    <a href="https://openxlab.org.cn/models/detail/Lindsey/TRLLM-Model-v2"><img src="./assets/xlab-i.png" width="20"></a> | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_v1_new.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random_new.json)数据集（包括科目一科目四带解释版题库、基于商业大模型改进output表述的数据集、和自我认知数据集，打乱顺序后混合而成）上进行微调，共「33834」条数据，训练三个批次。 |
+| **TRLLM-v2-4bit**                 <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit_turbomind/summary"><img src="./assets/ms.png" width="20">    </a>                                                                                   | 在TRLLM-v2-进行W4A16量化。                                                                                                                                                                                                                          |
 
 ---
 
@@ -93,7 +93,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ### 3. Xtuner chat体验微调后的模型
 
-使用Xtuner chat直接测试发布在Model Scope上的TRLLM模型。
+以下是使用Xtuner chat直接测试发布在Model Scope上的TRLLM-v2模型。
 
 #### 运行结果摘要
 
@@ -103,24 +103,26 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ---
 
-## TRLLM-Traffic-Rules-Assistant 构建逻辑
-
-### 项目结构
+## TRLLM-Traffic-Rules-Assistant 项目构建逻辑
 
 ### 数据构建
+#### 1. RAG数据集
+#### 2. 指令跟随微调数据集
+#### 3. 自制评测数据集
 
 ### 微调指南
 
+
 ### 量化部署
 
-#### 4bit 量化
+#### 1. 4bit 量化
 
 - 计算 minmax
 - 量化权重模型
 - 量化后的模型转换成turbomind 格式
 - 启动4bit量化后的模型
 
-#### KV Cache 量化
+#### 2. KV Cache 量化
 
 - 转换原始模型格式
 - 计算 minmax
@@ -128,7 +130,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 - 修改参数
 - 启动kvcache量化之后的模型
 
-#### 4bit 量化 + KV Cache 量化
+#### 3. 4bit 量化 + KV Cache 量化
 
 - 获取量化参数（注意此时是把结果放到 4bit 量化turbomind的模型weight目录下
 - 启动4bit+kvcache模型
