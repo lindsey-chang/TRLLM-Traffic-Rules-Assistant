@@ -94,6 +94,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 ### 2. 在OpenXlab上体验本项目
 
 [TRLLM-v2-Traffic-Assistant (Ensemble Retriever)](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-Traffic-Assistant)
+
 [TRLLM-v2-4bit-Traffic-Assistant (Ensemble Retriever)](https://openxlab.org.cn/apps/detail/tackhwa00/TRLLM-v2-W4A16-Traffic-Assistant)
 
 
