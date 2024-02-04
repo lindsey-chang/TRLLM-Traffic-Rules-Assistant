@@ -82,6 +82,7 @@ git clone https://github.com/lindsey-chang/TRLLM-Traffic-Rules-Assistant.git
 #### 配置环境
 
 ```bash
+cd TRLLM-Traffic-Rules-Assistant
 conda env create --name trllm --file=environment.yml
 conda activate trllm
 pip install -r requirements.txt
