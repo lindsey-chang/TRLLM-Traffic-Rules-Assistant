@@ -6,6 +6,8 @@ Please refer to these links below for more information:
     2. chatglm2: https://github.com/THUDM/ChatGLM2-6B
     3. transformers: https://github.com/huggingface/transformers
 """
+import os
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
 from dataclasses import asdict
 
