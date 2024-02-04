@@ -36,10 +36,10 @@ Retriever的性能可能更为出色。这强调了基座模型对prompt理解�
 
 ![compare2-prompt.png](../assets/compare2-prompt.png)
 
-原生TRLLM-v2和使用Ensemble Retriever时的结果相似，而Multi Query
-Retriever在TRLLM-v2上能够提供一些额外信息，但整体差距不大。经过测试发现，TRLLM-v2的知识覆盖了RAG输出的知识，也就是说，当启用RAG时，如果用户提出的问题超出了
-TRLLM-v2 的知识范围，但在 RAG
-涵盖的领域内，模型也无法回答该问题。简言之，RAG的作用主要是为TRLLM-v2的输出添加一些细节（取决于输出额外提问的关联性以及多样性），有时甚至没有。此外，正如图中所示，TRLLM-v2存在不受prompt影响的情况，原本应该输出额外提问变成输出了答案。综上所述，TRLLM-v2可能存在过拟合的现象。
+  原生TRLLM-v2和使用Ensemble Retriever时的结果相似，而Multi Query
+  Retriever在TRLLM-v2上能够提供一些额外信息，但整体差距不大。经过测试发现，TRLLM-v2的知识覆盖了RAG输出的知识，也就是说，当启用RAG时，如果用户提出的问题超出了
+  TRLLM-v2 的知识范围，但在 RAG
+  涵盖的领域内，模型也无法回答该问题。简言之，RAG的作用主要是为TRLLM-v2的输出添加一些细节（取决于输出额外提问的关联性以及多样性），有时甚至没有。此外，正如图中所示，TRLLM-v2存在不受prompt影响的情况，原本应该输出额外提问变成输出了答案。综上所述，TRLLM-v2可能存在过拟合的现象。
 
 
 - **基于 TRLLM-v2-4bit（量化后的TRLLM-v2） 为基座模型对比 Ensemble Retriever 和 Multi Query Retriever**：
@@ -48,7 +48,7 @@ TRLLM-v2 的知识范围，但在 RAG
 |-----------------------------------------------------|-----------------------------------------------|-------------------------------------------------|
 | ![compare3-trllm.png](../assets/compare3-trllm.png) | ![compare3-er.png](../assets/compare3-er.png) | ![compare3-mqr.png](../assets/compare3-mqr.png) |
 
-量化后的模型的效果差了不少，知识覆盖的情况也没有改善。
+启用RAG后，观察到与 TRLLM-v2-4bit 的输出稍有不同。这种现象可能是由于量化后的模型在应对过拟合情况时略有改善。然而，基于量化后的TRLLM-v2-4bit表现显著下降，而RAG的性能则非常依赖于基座模型，导致RAG输出的结果并不理想。
 
 ## 总结
 
