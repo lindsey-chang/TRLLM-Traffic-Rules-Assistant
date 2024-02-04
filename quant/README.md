@@ -18,14 +18,14 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   lmdeploy convert internlm2-chat-7b /root/code/HT/TRLLM-Model-v2  --dst-path ./trll2-model-kv_turbomind
   ```
 
-- 获取量化参数（注意此时是把结果放到 turbomind的模型weight目录下
+- 获取量化参数（注意此时是把结果放到 turbomind的模型weight目录下）
   ```
   lmdeploy lite kv_qparams ./trll2-model-kv ./trll2-model-kv_turbomind/triton_models/weights/ --num-tp 1 
   ```
 
 - 启动kvcache量化之后的模型
   ```
-  lmdeploy chat turbomind trll2-model-kv_turbomind --model-format awq --quant-policy 4
+  lmdeploy chat turbomind trll2-model-kv_turbomind  
   ```
   ![启动kvcache模型](../assets/启动kvcache模型.png)
 
@@ -61,7 +61,7 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
 
 - 启动 W4A16 +kvcache模型
   ```
-  lmdeploy chat turbomind workspace_trll2_model_4bit_turbomind --model-format awq --quant-policy 4
+  lmdeploy chat turbomind workspace_trll2_model_4bit_turbomind 
   ```
   ![Alt text](../assets/4bit+kvcache模型.png)
 
