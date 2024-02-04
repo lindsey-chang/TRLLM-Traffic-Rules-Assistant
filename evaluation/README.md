@@ -83,4 +83,3 @@ python run.py --custom-dataset-path /root/data/eval_data/mcq_data.jsonl --hf-pat
 > `mcq_data.jsonl` 与微调数据集`llm_conversation_dataset_merge_random_v1.json`是分开构建的，未有数据泄漏问题，构建过程详见[微调数据集构建流程](../dataset/README.md)。
 
 
-## 量化部署评测
