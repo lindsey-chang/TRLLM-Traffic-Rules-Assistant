@@ -52,7 +52,7 @@ Retriever的性能可能更为出色。这强调了基座模型对prompt理解�
 
 ## 总结
 
-如何想询问跟交通法规相关的建议使用基于 internlm2-chat-7b 为基座模型的 Multi Query Retriever，
+如果想询问跟交通法规相关的建议使用基于 internlm2-chat-7b 为基座模型的 Multi Query Retriever，
 这是因为rag数据集收集了相对全面的法规，而且微调后的模型存在知识覆盖的情况。反之如果想询问驾考方面推荐使用
 TRLLM-v2 + Multi Query Retriever （取决于生成的额外问题, 表现有时候不太稳定)。
 
