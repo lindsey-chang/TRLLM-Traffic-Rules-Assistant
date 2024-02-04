@@ -271,7 +271,6 @@ contents2 = re.findall(r'】([^】]*)$', text, re.DOTALL)
 - choose
 - answer
 - explanation
-- 
 ```json
 [
   {
