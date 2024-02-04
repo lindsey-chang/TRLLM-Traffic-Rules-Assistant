@@ -55,6 +55,9 @@
 ---
 
 ## 如何体验本项目
+
+关于各个版本的结果对比以及介绍，请移步到 [RAG](./rag/README.md)。
+
 ### 运行脚本说明：
 
 `web_demo_ensemble_retriever.py` ：TRLLM-v2 (Ensemble Retriever) 
