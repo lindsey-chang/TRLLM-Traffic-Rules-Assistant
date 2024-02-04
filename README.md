@@ -102,7 +102,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 
 #### 如果你想部署我们在OpenXlab上的项目
-[OpenXlab](./demo)
+[请看Demo](./demo)
 
 #### 运行结果摘要
 
