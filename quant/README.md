@@ -83,7 +83,8 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
 | internlm2-chat-7b      | 15        | 15031     | 58.37         | 基座模型                       |
 | TRLLM-Model-v1         | 29        | 15273     | 67.46         | 线下收集的数据集微调                 |
 | TRLLM-Model-v2         | 29        | 16103     | 69.83         | 线下收集的数据集+ 商业大模型进行数据扩展 微调   |
-
+| TRLLM-Model-v2-4bit    | 4.9           | 5577          | -               | 基于TRLLM-Model-v2 4bit量化                   |
+| TRLLM-Model-v2-4bit+kv | 5             | 6385          | -               | 基于TRLLM-Model-v2 4bit+kv量化                |
 ## 总结
 
 - 基于internlm2-chat-7b 模型，使用了线下收集的交通法规、驾考题等数据集，对模型进行了微调。
