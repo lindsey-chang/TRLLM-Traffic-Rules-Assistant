@@ -2,7 +2,9 @@
 
 ## RAG数据集
 
-> **[通过Google Drive访问我们的进行RAG的原始数据与处理后的数据](https://drive.google.com/drive/folders/1byb6ygquCQe9joAHZayYF1SUat3q8lKN?usp=sharing)**
+> *
+*[通过Google Drive访问我们的进行RAG的原始数据与处理后的数据](https://drive.google.com/drive/folders/1byb6ygquCQe9joAHZayYF1SUat3q8lKN?usp=sharing)
+**
 
 ### 原始数据
 
@@ -32,15 +34,17 @@
 ## 微调数据集
 
 > Doc转markdown格式
-> 
+>
 > markdown转raw_json
-> 
+>
 > raw_json转struc_json
-> 
+>
 > struct_json转finetune_json
 
 
-> **[通过Google Drive访问我们微调阶段的数据集](https://drive.google.com/drive/folders/1g0N1qDH0WYPYmCthUZdDtVSolfOKo-UH?usp=sharing)**
+> *
+*[通过Google Drive访问我们微调阶段的数据集](https://drive.google.com/drive/folders/1g0N1qDH0WYPYmCthUZdDtVSolfOKo-UH?usp=sharing)
+**
 
 ### 原始数据
 
@@ -253,4 +257,50 @@ contents2 = re.findall(r'】([^】]*)$', text, re.DOTALL)
 ```
 
 ## 评测数据集
+
+>自定义数据集格式以及利用opencampass进行评测，参考文档：[https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/custom_dataset.html](https://opencompass.readthedocs.io/zh-cn/latest/advanced_guides/custom_dataset.html)
+
+[genmcq.py](./dataset/GenEvaluationData/genmcq.py)用于从结构化的 JSON
+数据集（[仅有答案没有解释的结构化科目一问题集](./dataset/json/struc_json/course1_without_exp.json)、[仅有答案没有解释的结构化科目四问题集](./dataset/json/struc_json/course4_without_exp.json)
+）中提取多项选择题（MCQ）数据。**评测数据集和微调数据集是分别基于不同的源数据制作的，因此避免了数据泄漏问题，确保了评测得分的可靠度。**
+
+- 从结构化的科目一科目四选择题数据中提取问题`question`、选项`choose`和答案`answer`。
+- 清洁和格式化选项文本，生成易于处理的选项列表。
+- 过滤掉多选题（因为暂不明确oncampass评测多选题时的脚本怎么写）。
+- 将处理后的题目数据转换为 JSONL 格式，每个题目一个 JSON 对象，符合oncampass官方文档的要求。
+
+### 输入数据格式
+
+- question
+- choose
+- answer
+- explanation
+- 
+```json
+[
+  {
+    "question": "变更车道前确认后方无来车时可以不开转向灯变道。",
+    "choose": "A、正确\nB、错误",
+    "answer": "B",
+    "explainnation": ""
+  },
+  {
+    "question": "某日早上6时，冉某驾驶一辆大客车出发，连续行驶至上午11时，在宣汉县境内宣南路1公里处，坠于公路一侧垂直高度8.5米的陡坎下，造成13人死亡、9人受伤。冉某的主要违法行为是什么？",
+    "choose": "A、超速行驶\nB、不按交通标线行驶\nC、客车超员\nD、疲劳驾驶",
+    "answer": "D",
+    "explainnation": "。连续行驶超过4个小时属于疲劳驾驶。"
+  }
+]
+```
+
+### 输出数据格式
+- question
+- A, B, C, D, ...
+- answer
+
+```json lines
+{"question": "对驾驶已达到报废标准的机动车上路行驶的驾驶人，会受到以下哪种处罚？", "A": "处 15 日以下拘留", "B": "吊销机动车驾驶证", "C": "处 20 元以上 200 元以下罚款", "D": "追究刑事责任", "answer": "B"}
+{"question": "驾驶机动车上路前应检查车辆安全技术性能。", "A": "正确", "B": "错误", "answer": "A"}
+```
+
 
