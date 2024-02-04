@@ -48,7 +48,7 @@ KV Cache 量化是将已经生成序列的 KV 变成 Int8
   ```
 - 启动W4A16量化后的模型
   ```
-  lmdeploy chat turbomind ./workspace_trll2_model_4bit_turbomind --model-format awq --quant-policy 4
+  lmdeploy chat turbomind ./workspace_trll2_model_4bit_turbomind 
   ```
   ![4bit量化后的模型](../assets/4bit量化后的模型.png)
 
