@@ -45,12 +45,12 @@
 
 ## Released Models
 
-| Model                                                                                                                                                                                                                                                       | Introduction                                                                                                                                                                                                                                  |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **TRLLM-v1** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model/summary"><img src="./assets/ms.png" width="20">           </a>                                                                                                                  | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_v1.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random.json) 数据集（包括科目一科目四带解释版题库和自我认知数据集，打乱顺序后混合而成）上进行微调，为了增加数据量将相同数据复制了10遍，共「40468」条数据，训练一个批次。            |
-| **TRLLM-v1-4bit**                  <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit/summary"> <img src="./assets/ms.png" width="20">    </a>                                                                                           | 基于TRLLM-v1进行W4A16量化。                                                                                                                                                                                                                          |
-| **TRLLM-v2** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model-v2/summary"><img src="./assets/ms.png" width="20"></a>    <a href="https://openxlab.org.cn/models/detail/Lindsey/TRLLM-Model-v2"><img src="./assets/xlab-i.png" width="20"></a> | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_v1_new.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random_new.json)数据集（包括科目一科目四带解释版题库、基于商业大模型改进output表述的数据集、和自我认知数据集，打乱顺序后混合而成）上进行微调，共「33834」条数据，训练三个批次。 |
-| **TRLLM-v2-4bit**                 <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit_turbomind/summary"><img src="./assets/ms.png" width="20">    </a>                                                                                   | 在TRLLM-v2-进行W4A16量化。                                                                                                                                                                                                                          |
+| Model                                                                                                                                                                                                                                                       | Introduction                                                                                                                                                                                                                               |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **TRLLM-v1** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model/summary"><img src="./assets/ms.png" width="20">           </a>                                                                                                                  | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_v1.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random_v1.json) 数据集（包括科目一科目四带解释版题库和自我认知数据集，打乱顺序后混合而成）上进行微调，为了增加数据量将相同数据复制了10遍，共「40468」条数据，训练一个批次。      |
+| **TRLLM-v1-4bit**                  <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit/summary"> <img src="./assets/ms.png" width="20">    </a>                                                                                           | 基于TRLLM-v1进行W4A16量化。                                                                                                                                                                                                                       |
+| **TRLLM-v2** <a href="https://modelscope.cn/models/LindseyChang/TRLLM-Model-v2/summary"><img src="./assets/ms.png" width="20"></a>    <a href="https://openxlab.org.cn/models/detail/Lindsey/TRLLM-Model-v2"><img src="./assets/xlab-i.png" width="20"></a> | 基于基座模型InternLM2-chat-7B在[llm_conversation_dataset_merge_random_new.json](./dataset/json/finetune_json/llm_conversation_dataset_merge_random_new.json)数据集（包括科目一科目四带解释版题库、基于商业大模型改进output表述的数据集、和自我认知数据集，打乱顺序后混合而成）上进行微调，共「33834」条数据，训练三个批次。 |
+| **TRLLM-v2-4bit**                 <a href="https://www.modelscope.cn/models/heitao5200/TRLLM-Model-4bit_turbomind/summary"><img src="./assets/ms.png" width="20">    </a>                                                                                   | 在TRLLM-v2-进行W4A16量化。                                                                                                                                                                                                                       |
 
 ---
 
@@ -113,6 +113,9 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 ### 微调指南
 
 
+#### 1. 基于internml2-chat-7b进行QLoRA微调，使用指令跟随数据集`llm_conversation_dataset_merge_random_v1.json`，迭代1个批次，在1/4A100上耗时约4小时。
+
+#### ２. 基于internml2-chat-7b进行QLoRA微调，使用**增强**后的指令跟随数据集`llm_conversation_dataset_merge_random_new.json`，迭代3个批次，在1/4A100上耗时约8小时。
 ### 量化部署
 
 #### 1. 4bit 量化
@@ -136,6 +139,14 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 - 启动4bit+kvcache模型
 
 ### 评测分析
+自制的客观评测数据集：[mcq_data.jsonl](./dataset/json/eval_jsonl/mcq_data.jsonl)
+
+| 模型名称                   | 内存占用(MiB) | 显存占用(MiB) | opencompass测评 | 优化点                        |
+|------------------------|-----------|-----------|---------------|----------------------------|
+| internlm2-chat-7b      | 15        | 15031     | 58.37         | 基座模型                       |
+| TRLLM-Model-v1         | 29        | 15273     | 67.46         | 线下收集的数据集微调                 |
+| TRLLM-Model-v2         | 29        | 16103     | 69.83         | 线下收集的数据集+ 商业大模型进行数据扩展 微调   |
+
 
 ### 问题思考
 
@@ -147,6 +158,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 
 ## 后记
 
+### TRLLM形象生成
 项目LOGO由DALL·E生成:
 
 - Prompt:
@@ -162,3 +174,7 @@ streamlit run web_demo_ensemble_retriever.py --server.address 127.0.0.1 --server
 >
 > The main logo should just contain the letters: "TRLLM".  "TRLLM" needs to be directly below the circular logo!!! Both
 > the circular LOGO and the "TRLLM" text should be centered in the vertical direction (y-axis direction).
+
+## 特别鸣谢
+
+## 项目贡献者
