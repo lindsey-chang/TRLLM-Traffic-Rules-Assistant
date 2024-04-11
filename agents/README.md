@@ -16,7 +16,7 @@ streamlit run web_demo_agent.py --server.address 127.0.0.1 --server.port 6006
 此 Agent 会根据用户提问自动选择是否启动 RAG。如果用户提问关于交通法规着启用 RAG，反之着只启用微调后的模型。
 
 **如果用户提问关于普遍交通知识：** Agent 会返回数字 "1" ，启动 `fine-tuned` 模型
-[intent_agent_1.png](../assets/intent_agent_1.png)
+![intent_agent_1.png](../assets/intent_agent_1.png)
 
 **如果用户提问关于交通法规：** Agent 会返回数字 "2" ，启动带 `RAG` 策略的 fine-tuned 模型
-[intent_agent_2.png](../assets/intent_agent_2.png)
+![intent_agent_2.png](../assets/intent_agent_2.png)
