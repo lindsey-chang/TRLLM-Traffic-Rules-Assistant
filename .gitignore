@@ -1,0 +1,16 @@
+# 忽略openai key等环境配置文件
+.env
+# 忽略编辑器生成的文件
+.vscode/
+# 忽略日志文件
+*.log
+.idea/
+logs/
+# 中间产物
+__pycache__/
+build/
+tianji.egg-info/
+temp/
+*.bin
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
