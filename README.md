@@ -63,7 +63,7 @@
 
 `web_demo_multi_retriever.py` : TRLLM-v2 (Multi Query Retriever Retriever)
 
-`web_demo_agent.py` : 带有 [意图识别](.agents/README.md) 的 TRLLM-v2
+`web_demo_agent.py` : 带有 [意图识别](./agents/README.md) 的 TRLLM-v2
 
 `web_demo_turbomind_ensemble_retriever.py` : TRLLM-v2-4bit (Ensemble Retriever)
 
