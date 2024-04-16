@@ -26,7 +26,7 @@
 
 ---
 
-## <img src="https://slackmojis.com/emojis/12597-meow_orange/download" width="30"/> Framework
+## <img src="https://slackmojis.com/emojis/12595-meow_orange/download" width="30"/> Framework
 ![framework.png](assets/TRLLM-framework.png)
 
 ## <img src="https://slackmojis.com/emojis/12572-meow_gummyattention/download" width="30"/> Achievement
