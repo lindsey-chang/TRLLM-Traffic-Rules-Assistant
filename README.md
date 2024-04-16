@@ -26,6 +26,15 @@
 
 ---
 
+## <img src="https://slackmojis.com/emojis/12597-meow_orange/download" width="30"/> Framework
+![framework.png](assets/TRLLM-framework.png.png)
+
+## <img src="https://slackmojis.com/emojis/12572-meow_gummyattention/download" width="30"/> Achievement
+项目荣获上海人工智能实验室举办的2024浦源大模型系列挑战赛春季赛前50强
+![comp.png](assets/comp.png)
+
+---
+
 ## <img src="https://slackmojis.com/emojis/12597-meow_heart_bongo/download" width="30"/> Features
 
 - [**经过筛选的高质量结构化交通知识数据集**](./dataset/)
